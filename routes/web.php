@@ -18,3 +18,5 @@ use App\Http\Controllers\Auth\UserController;
 //     return view('registration');
 // });
 Route::get('registration', [UserController::class, 'registration'])->name('register');
+Route::post('register/create', [UserController::class, 'createRegistration'])->name('register.create');
+Route::get('login', [UserController::class, 'login'])->name('login');
