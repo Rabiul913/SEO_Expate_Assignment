@@ -87,11 +87,6 @@ class UserController extends Controller
         }
 
         if(!empty($passchange)){
-            // Mail::send('This is your new password: '.$password, function ($message) use ($request) {
-            //     $message->to($request->email);
-            //     $message->subject('Reset Password');
-            // });
-
             Mail::send('auth.notification.password_reset_mail', ['password' => $password], function ($message) use ($request) {
                 $message->to($request->email);
                 $message->subject('Reset Password');
