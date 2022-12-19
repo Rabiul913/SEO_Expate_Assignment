@@ -23,6 +23,7 @@ Route::post('register/create', [UserController::class, 'createRegistration'])->m
 Route::get('login-form', [UserController::class, 'login'])->middleware('guest')->name('login.form');
 Route::post('login', [UserController::class, 'authentication'])->middleware('guest')->name('login');
 Route::get('forget-password', [UserController::class, 'forgetPasswordForm'])->middleware('guest')->name('forget_password');
+Route::get('forget-password-notification', [UserController::class, 'forgetPasswordNotification'])->middleware('guest')->name('forget_password_notification');
 Route::post('change-password', [UserController::class, 'change_password'])->middleware('guest')->name('change-password');
 
 Route::group(['middleware' => ['auth']], function() {    

@@ -60,7 +60,7 @@
                   <p>A new password has been emailed to you.</p>
                   <p>
                     If you do not receive and email please
-                    <a href="../forgot-password.html"> try again </a> or contact
+                    <a href="{{ route('forget_password') }}"> try again </a> or contact
                     support.
                   </p>
                 </div>

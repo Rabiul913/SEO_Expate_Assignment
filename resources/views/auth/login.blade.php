@@ -81,7 +81,7 @@
                   </form>
                   <div class="links">
                     <p>
-                      <a href="signup.html">Need an account?</a>
+                      <a href="{{route('register')}}">Need an account?</a>
                       <a href="{{ route('forget_password') }}">Forgot Password?</a>
                     </p>
                   </div>

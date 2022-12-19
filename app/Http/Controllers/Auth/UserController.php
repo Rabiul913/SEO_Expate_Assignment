@@ -62,7 +62,7 @@ class UserController extends Controller
             $data->save();
         
          
-        return redirect("login.form")->with('success','Great! You have Successfully Registered');
+        return redirect()->route('login.form')->with('success','Great! You have Successfully Registered');
     }
 
     public function forgetPasswordForm()
@@ -87,13 +87,23 @@ class UserController extends Controller
         }
 
         if(!empty($passchange)){
-            Mail::send('This is your new password: '.$password, function ($message) use ($request) {
+            // Mail::send('This is your new password: '.$password, function ($message) use ($request) {
+            //     $message->to($request->email);
+            //     $message->subject('Reset Password');
+            // });
+
+            Mail::send('auth.notification.password_reset_mail', ['password' => $password], function ($message) use ($request) {
                 $message->to($request->email);
                 $message->subject('Reset Password');
             });
         }
 
-        return back()->with('success', 'We have e-mailed your password reset link!');
+        return  redirect()->route('forget_password_notification');
+    }
+
+    public function forgetPasswordNotification()
+    {
+        return view('auth.notification.password_request');
     }
 
     public function logout() {
