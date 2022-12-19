@@ -54,12 +54,12 @@
             <div class="col-md-5">
               <div class="card">
                 <div class="card-title">Sign In</div>
-                if(session()->has('success'))
+                @if(session()->has('success'))
                     <div class="alert alert-success">
                         {{ session()->get('success') }}
                     </div>
                 @endif
-                if(session()->has('alert'))
+                @if(session()->has('alert'))
                     <div class="alert alert-danger">
                         {{ session()->get('alert') }}
                     </div>
