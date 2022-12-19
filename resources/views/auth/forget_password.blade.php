@@ -9,7 +9,7 @@
     <meta name="description" content="" />
     <meta name="keywords" content="content" />
 
-    <title>Log In | SEO Content</title>
+    <title>Forgot Password | SEO Content</title>
 
     <!-- Bootstrap CSS -->
     <link
@@ -32,7 +32,6 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
     />
-
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/style.css') }}" />
 
@@ -41,55 +40,33 @@
   </head>
 
   <body>
-    <main class="section-login">
-      <section class="section-login--logo">
+    <main class="section-forgot-password">
+      <section class="section-forgot-password--logo">
         <a href="index.html">
           <img src="assets/images/logo.png" alt="logo" class="img-fluid" />
         </a>
       </section>
 
-      <section class="section-login--form">
+      <section class="section-forgot-password--form">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-md-5">
               <div class="card">
-                <div class="card-title">Sign In</div>
-                @if(session()->has('success'))
-                    <div class="alert alert-success">
-                        {{ session()->get('success') }}
-                    </div>
-                @endif
-                @if(session()->has('alert'))
-                    <div class="alert alert-danger">
-                        {{ session()->get('alert') }}
-                    </div>
-                @endif
+                <div class="card-title">Forgot Password</div>
                 <div class="card-body">
-                  <form action="{{route('login')}}" method="POST">
-                    @csrf
+                  <form action="">
                     <div class="mt-3">
                       <label for="" class="form-label">Email</label>
-                      <input type="email" class="form-control u-box-shadow-1" name="email"/>
+                      <input
+                        type="email"
+                        class="form-control u-box-shadow-1"
+                        name=""
+                      />
                     </div>
-                    <div class="mt-3">
-                      <label for="" class="form-label">Password</label>
-                      <input type="password" class="form-control u-box-shadow-1" name="password"/>
-                    </div>
-                    <div class="mt-5">
-                      <button class="btn btn-green" type="submit">Sign In</button>
+                    <div class="my-5">
+                      <div class="btn btn-green">Request Password</div>
                     </div>
                   </form>
-                  <div class="links">
-                    <p>
-                      <a href="signup.html">Need an account?</a>
-                      <a href="forgot-password.html">Forgot Password?</a>
-                    </p>
-                  </div>
-                  <div class="back-button">
-                    <a href="index.html">
-                      <i class="bi bi-arrow-left-circle"></i>
-                    </a>
-                  </div>
                 </div>
               </div>
             </div>

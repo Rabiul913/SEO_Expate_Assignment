@@ -94,7 +94,7 @@
         </p>
         <p class="login-link mt-5">
           Already have an account?
-          <a href="{{route('login')}}"> Sign in </a>
+          <a href="{{route('login.form')}}"> Sign in </a>
         </p>
       </section>
     </main>

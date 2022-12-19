@@ -17,6 +17,9 @@ use App\Http\Controllers\Auth\UserController;
 // Route::get('/', function () {
 //     return view('registration');
 // });
+Route::get('home', [UserController::class, 'index'])->name('home');
 Route::get('registration', [UserController::class, 'registration'])->name('register');
 Route::post('register/create', [UserController::class, 'createRegistration'])->name('register.create');
-Route::get('login', [UserController::class, 'login'])->name('login');
+Route::get('login-form', [UserController::class, 'login'])->name('login.form');
+Route::post('login', [UserController::class, 'authentication'])->name('login');
+Route::get('logout', [UserController::class, 'logout'])->name('logout');

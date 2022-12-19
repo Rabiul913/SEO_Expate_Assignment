@@ -89,12 +89,18 @@
                   </li>
                 </ul>
               </li>
+              @if(empty(allsessions))
               <li class="nav-item">
-                <a class="nav-link" href="login.html">Login</a>
+                <a class="nav-link" href="{{route('login.form')}}">Login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link btn btn-white" href="signup.html">Sign Up</a>
+                <a class="nav-link btn btn-white" href="{{route('logout')}}">Sign Up</a>
               </li>
+              @else
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('logout')}}">Logout</a>
+              </li>
+              @endif
             </ul>
           </div>
         </div>
