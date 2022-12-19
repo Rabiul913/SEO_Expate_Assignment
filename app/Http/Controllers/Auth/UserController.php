@@ -30,7 +30,7 @@ class UserController extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             $allsessions = Session::all();
-            return redirect()->intended('home')->compact('allsessions')->with('success','You have Successfully loggedin');
+            return redirect()->intended('home')->with(['success','You have Successfully loggedin'],['allsessions',$allsessions]);
         }
   
         return redirect("login.form")->with('alert','Oppes! You have entered invalid credentials');
@@ -70,8 +70,7 @@ class UserController extends Controller
 
     public function logout() {
         Session::flush();
-        Auth::logout();
-  
-        return redirect('login.form');
+        Auth::logout();  
+        return redirect()->route('login.form');
     }
 }

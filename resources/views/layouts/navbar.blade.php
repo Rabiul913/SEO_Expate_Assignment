@@ -89,18 +89,23 @@
                   </li>
                 </ul>
               </li>
-              @if(empty(allsessions))
-              <li class="nav-item">
-                <a class="nav-link" href="{{route('login.form')}}">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link btn btn-white" href="{{route('logout')}}">Sign Up</a>
-              </li>
+
+              @guest
+                  @if (Route::has('login'))
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{route('login.form')}}">Login</a>
+                    </li>
+                  @endif
+                  @if (Route::has('register'))
+                    <li class="nav-item">
+                      <a class="nav-link btn btn-white" href="{{route('register')}}">Sign Up</a>
+                    </li>
+                  @endif
               @else
-              <li class="nav-item">
-                <a class="nav-link" href="{{route('logout')}}">Logout</a>
-              </li>
-              @endif
+                <li class="nav-item">
+                  <a class="nav-link" href="{{route('logout')}}">Logout</a>
+                </li>
+              @endguest
             </ul>
           </div>
         </div>
