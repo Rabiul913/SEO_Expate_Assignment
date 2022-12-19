@@ -8,6 +8,9 @@ use Hash;
 use Session;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash as FacadesHash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -62,11 +65,36 @@ class UserController extends Controller
         return redirect("login.form")->with('success','Great! You have Successfully Registered');
     }
 
-    public function forgetPassword()
+    public function forgetPasswordForm()
     {
-        return view('auth.forger_password');
+        return view('auth.forget_password');
     }
 
+    public function change_password(Request $request) {
+        $request->validate([
+            'email' => 'required|email|exists:users',
+        ]);
+
+        $password = Str::random(8);
+
+        $user = User::where('email',$request->email)->first();
+        // dd($password);
+        if(!empty($user)){
+            $passchange=User::where('email',$request->email)->update([
+                'password'=>Hash::make($password)
+            ]);
+
+        }
+
+        if(!empty($passchange)){
+            Mail::send('This is your new password: '.$password, function ($message) use ($request) {
+                $message->to($request->email);
+                $message->subject('Reset Password');
+            });
+        }
+
+        return back()->with('success', 'We have e-mailed your password reset link!');
+    }
 
     public function logout() {
         Session::flush();

@@ -44,7 +44,7 @@
     <main class="section-login">
       <section class="section-login--logo">
         <a href="index.html">
-          <img src="assets/images/logo.png" alt="logo" class="img-fluid" />
+          <img src="{{asset('assets/images/logo.png') }}" alt="logo" class="img-fluid" />
         </a>
       </section>
 
@@ -82,7 +82,7 @@
                   <div class="links">
                     <p>
                       <a href="signup.html">Need an account?</a>
-                      <a href="forgot-password.html">Forgot Password?</a>
+                      <a href="{{ route('forget_password') }}">Forgot Password?</a>
                     </p>
                   </div>
                   <div class="back-button">

@@ -32,6 +32,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
     />
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/style.css') }}" />
 
@@ -40,36 +41,33 @@
   </head>
 
   <body>
-    <main class="section-forgot-password">
-      <section class="section-forgot-password--logo">
-        <a href="{{route('home')}}">
+    <main class="section-password-request">
+      <section class="section-password-request--logo">
+        <a href="index.html">
           <img src="{{asset('assets/images/logo.png') }}" alt="logo" class="img-fluid" />
         </a>
       </section>
 
-      <section class="section-forgot-password--form">
+      <section class="section-password-request--details">
         <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-md-5">
-              <div class="card">
-                <div class="card-title">Forgot Password</div>
-                <div class="card-body">
-                  <form action="{{route('change-password')}}" method="POST">
-                      @csrf
-                    <div class="mt-3">
-                      <label for="" class="form-label">Email</label>
-                      <input
-                        type="email"
-                        class="form-control u-box-shadow-1"
-                        name="email"
-                      />
-                    </div>
-                    <div class="my-5">
-                      <button class="btn btn-green" type="submit">Request Password</button>
-                    </div>
-                  </form>
+          <div class="row align-items-center bg-white p-5">
+            <div class="col-md-6 p-5">
+              <div class="card border-0">
+                <div class="card-title justify-content-start">
+                  <h1 class="heading">Forgotten Password</h1>
+                </div>
+                <div class="card-body ps-0">
+                  <p>A new password has been emailed to you.</p>
+                  <p>
+                    If you do not receive and email please
+                    <a href="../forgot-password.html"> try again </a> or contact
+                    support.
+                  </p>
                 </div>
               </div>
+            </div>
+            <div class="col-md-6">
+              <img src="{{asset('assets/images/emailed.svg')}}" alt="" />
             </div>
           </div>
         </div>

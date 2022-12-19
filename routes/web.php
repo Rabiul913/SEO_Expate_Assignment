@@ -22,6 +22,8 @@ Route::get('registration', [UserController::class, 'registration'])->middleware(
 Route::post('register/create', [UserController::class, 'createRegistration'])->middleware('guest')->name('register.create');
 Route::get('login-form', [UserController::class, 'login'])->middleware('guest')->name('login.form');
 Route::post('login', [UserController::class, 'authentication'])->middleware('guest')->name('login');
+Route::get('forget-password', [UserController::class, 'forgetPasswordForm'])->middleware('guest')->name('forget_password');
+Route::post('change-password', [UserController::class, 'change_password'])->middleware('guest')->name('change-password');
 
 Route::group(['middleware' => ['auth']], function() {    
     Route::get('logout', [UserController::class, 'logout'])->name('logout');
