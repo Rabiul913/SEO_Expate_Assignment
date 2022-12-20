@@ -14,10 +14,10 @@ use App\Http\Controllers\Auth\UserController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('registration');
-// });
-Route::get('/home', [UserController::class, 'index'])->name('home');
+Route::get('/', function () {
+    return view('index');
+});
+
 Route::get('registration', [UserController::class, 'registration'])->middleware('guest')->name('register');
 Route::post('register/create', [UserController::class, 'createRegistration'])->middleware('guest')->name('register.create');
 Route::get('login-form', [UserController::class, 'login'])->middleware('guest')->name('login.form');
@@ -27,5 +27,6 @@ Route::get('forget-password-notification', [UserController::class, 'forgetPasswo
 Route::post('change-password', [UserController::class, 'change_password'])->middleware('guest')->name('change-password');
 
 Route::group(['middleware' => ['auth']], function() {    
+    Route::get('/home', [UserController::class, 'index'])->name('home');
     Route::get('logout', [UserController::class, 'logout'])->name('logout');
 });

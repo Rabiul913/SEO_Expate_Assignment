@@ -36,7 +36,7 @@ class UserController extends Controller
             return redirect()->intended('home')->with(['success','You have Successfully loggedin'],['allsessions',$allsessions]);
         }
   
-        return redirect("login.form")->with('alert','Oppes! You have entered invalid credentials');
+        return redirect()->route('login.form')->with('alert','Oppes! You have entered invalid credentials');
     }
 
 
